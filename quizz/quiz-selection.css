@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 550px;
+    background-color: #994fd2;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    border-bottom-right-radius: 35%;
+    border-bottom-left-radius: 35%;
+    z-index: 1;
+}
+
+.circle {
+    margin-bottom: 60px;
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3); /* Transparent white */
+    backdrop-filter: blur(10px); /* Blurring background for glassy effect */
+}
+
+.one {
+    height: 280px;
+    width: 280px;
+}
+
+.two{
+    background: rgba(255, 255, 255, 0.3); /* Transparent white */
+    height: 200px;
+    width: 200px;
+}
+
+.three{
+    background: rgba(255, 255, 255, 0.6); /* Transparent white */
+    height: 150px;
+    width: 150px;
+}
+
+#score{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-family: "quicksand";
+    font-weight: 600;
+    color: #994fd2;
+}
+
+.points{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    font-family: "quicksand";
+    font-weight: bolder;
+    color: #994fd2;
+    margin-left: 5px;
+}
+
+#pts{
+    margin-top: 20px;
+}
+
+/* quiz section */
+.board{
+    position: absolute;
+    height: 300px;
+    width: 850px;
+    box-shadow: 2px 5px 9px rgba(0, 0, 0, 0.3);
+    border-radius: 15px; 
+    background-color: #ffffff;
+    z-index: 2;
+    left: 23%;
+    bottom: 3%;
+}
+
+.board ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px; 
+    padding: 60px; 
+    text-align: center;
+}
+
+.board ul li {
+    display: flex;
+    flex-direction: column;
+    font-family: "quicksand";
+    color: #333;
+    font-size: 25px;
+}
+
+.board ul li:first-child {
+    color: purple; /* Color for completion percentage */
+    font-weight: bold;
+}
+
+.board ul li:nth-child(2) {
+    color: purple;
+    font-weight: bold;
+}
+
+.board ul li:nth-child(3) {
+    color: green;
+    font-weight: bold;
+}
+
+.board ul li:nth-child(4) {
+    color: red;
+    font-weight: bold;
+}
+
+.board ul p {
+    margin-top: 5px;
+    color: #666;
+    font-size: 18px;
+}

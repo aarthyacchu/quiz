@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="quiz-selection.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+        <div class="container">
+            <div class="circle one"> </div>
+            <div class="circle two"> </div>
+            <div class="circle three">
+                <p id="score">Your Score</p>
+                <div class="points">
+                    <h1 class="points">150</h1><p id="pts">pts</p>
+                </div>
+            </div>
+        </div>
+        <div class="board">
+            <ul id="lists">
+                <li>  100% <p>completion</p></li>
+                <li>   20  <p>Questions</p></li>
+                <li>   13  <p>correct</p></li>
+                <li>   07  <p>wrong</p></li>
+            </ul>
+        </div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+    const quizDataRaw = localStorage.getItem("quizData");
+
+    if (quizDataRaw) {
+        const quizData = JSON.parse(quizDataRaw); // Parse stored JSON data
+        console.log("Loaded quiz data on dashboard:", quizData); // Debugging
+
+        // Update dashboard elements
+        document.querySelector(".points h1").textContent = quizData.totalScore || 0;
+        document.querySelector("#lists li:nth-child(1)").innerHTML =
+            `${Math.round((quizData.totalCorrect / quizData.totalQuestions) * 100)}% <p>completion</p>`;
+        document.querySelector("#lists li:nth-child(2)").innerHTML = `${quizData.totalQuestions} <p>Questions</p>`;
+        document.querySelector("#lists li:nth-child(3)").innerHTML = `${quizData.totalCorrect} <p>correct</p>`;
+        document.querySelector("#lists li:nth-child(4)").innerHTML = `${quizData.totalWrong} <p>wrong</p>`;
+    } else {
+        console.warn("No quiz data found in localStorage");
+    }
+});
+
+</script>
+            
+</body>
+</html>

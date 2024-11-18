@@ -146,8 +146,8 @@ p:hover{
 .quizoptions{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    margin: 5%;
+    justify-content:flex-start;
+    margin: 5% 5% 5% 0%;
 }
 
 .q{
@@ -156,9 +156,20 @@ p:hover{
     width: 200px;
     box-shadow: 2px 5px 9px rgba(0, 0, 0, 0.2);
     border-radius: 15px; 
+    margin: 0px 50px;
 }
 
 .q:hover{
     transform: translateY(-4px);
+    cursor: pointer;
+}
+
+#running-btn , #completed-btn{
+    background-color: #ffffff;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-family: "quicksand";
+    padding: 5px 50px;
     cursor: pointer;
 }

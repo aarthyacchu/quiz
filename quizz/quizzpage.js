@@ -51,7 +51,7 @@ function startQuiz() {
     const topic = urlParams.get("subject");
 
     if (!topic) {
-        alert("No topic selected. Redirecting to the selection page.");
+        // alert("No topic selected. Redirecting to the selection page.");
         window.location.href = "quiz-selection.html";
         return;
     }
@@ -141,17 +141,69 @@ function markIncorrect() {
     incorrectCount.innerHTML = `${incorrectAnswers} <i class="fa-solid fa-circle"></i>`;
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const quizDataRaw = localStorage.getItem("quizData");
+    
+    if (quizDataRaw) {
+        const quizData = JSON.parse(quizDataRaw); // Parse stored JSON data
+        console.log("Loaded quiz data:", quizData); // Debug: Confirm parsed data
+        
+        // Update dashboard elements with parsed values
+        document.querySelector(".points h1").textContent = quizData.totalScore || 0;
+        document.querySelector("#lists li:nth-child(1)").textContent =
+            `${Math.round((quizData.totalCorrect / quizData.totalQuestions) * 100)}% completion`;
+    } else {
+        // Fallback for missing data
+        document.querySelector(".points h1").textContent = 0;
+        document.querySelector("#lists li:nth-child(1)").textContent = "0% completion";
+    }
+});
+
 // Go to Next Question
 function nextQuestion() {
     if (currentQuestionIndex < questions.length - 1) {
         currentQuestionIndex++;
         showQuestion(questions[currentQuestionIndex]);
     } else {
-        alert(`Quiz complete! Your score: ${correctAnswers}/${questions.length}`);
+        // Calculate score and completion percentage for the current quiz
+        const totalQuestions = questions.length;
+        const score = correctAnswers * 10; // Example scoring: 10 points per correct answer
+        const completionPercentage = Math.round((correctAnswers + incorrectAnswers) / totalQuestions * 100);
+
+        // Retrieve existing data from localStorage or initialize it
+        const existingData = JSON.parse(localStorage.getItem("quizData")) || {
+            
+            totalScore: 0,
+            totalQuestions: 0,
+            totalCorrect: 0,
+            totalWrong: 0,
+            
+        };
+        console.log("Final quiz data stored:", JSON.parse(localStorage.getItem("quizData")));
+
+
+        // Update data with the current quiz results
+        const updatedData = {
+            totalScore: existingData.totalScore + score,
+            totalQuestions: existingData.totalQuestions + totalQuestions,
+            totalCorrect: existingData.totalCorrect + correctAnswers,
+            totalWrong: existingData.totalWrong + incorrectAnswers,
+        };
+
+        // Store updated data in localStorage
+        localStorage.setItem("quizData", JSON.stringify(updatedData));
+
+        // Debug: Log the updated data
+console.log("Updated quiz data:", updatedData);
+
+// Save updated data to localStorage
+localStorage.setItem("quizData", JSON.stringify(updatedData));
+
+        // Redirect to the dashboard
         window.location.href = "quiz-selection.html";
     }
 }
-
+console.log();
 // Initialize Quiz
 document.addEventListener("DOMContentLoaded", () => {
     startQuiz();

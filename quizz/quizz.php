@@ -1,14 +1,34 @@
-<?php 
-    if(isset($_SESSION['email'])){
-        $email=$_SESSION['email'];
-        $query=mysqli_query($conn, "SELECT user.* FROM `user` WHERE user.email='$email'");
-        while($row=mysqli_fetch_array($query)){
-            echo $row['firstname'].' '.$row['lastname'];
-        }
-    }
+<?php
+// Start the session at the very beginning
+session_start();
 
-    session_start();
-    
+$conn = mysqli_connect("localhost", "root", "", "quiz"); 
+
+// Check if the connection is successful
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+
+// Initialize a variable for the user's full name
+$fullName = "Guest"; // Default if not logged in
+
+// Check if the user is logged in
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+
+    // Query the database for the user's details
+    $query = mysqli_query($conn, "SELECT * FROM `user` WHERE email='$email'");
+
+    if ($query && mysqli_num_rows($query) > 0) {
+        $row = mysqli_fetch_array($query);
+        $firstName = $row['firstname'];
+        $lastName = $row['lastname'];
+        $fullName = "$firstName $lastName";
+    } else {
+        $fullName = "Error: User not found!";
+    }
+}
+mysqli_close($conn); 
 ?>
 <!-- <a href="logout.php">Logout</a> -->
 
@@ -32,19 +52,19 @@
         <div class="tabs">
             <a href="/quiz/quizz/quizz.php" style="text-decoration: none; "><h3 id="home" style="    border-bottom: green;
 "><i class="fa-solid fa-house"></i> Home</h3></a>
-            <a href="/quiz/activitytab/activity.html" style="text-decoration: none;"><h3 id="activity"> <i class="fa-solid fa-clock-rotate-left"></i> Activity</h3></a>
+            <a href="/quiz/activitytab/activitytab.php" style="text-decoration: none;"><h3 id="activity"> <i class="fa-solid fa-clock-rotate-left"></i> Activity</h3></a>
         </div>
         <div class="avathar">
             <img id="avathar" src="/quiz/img/avathar.gif">
             <div class="avathar">
-                <a href="/dashboard/dashboard.html"><button id="dashboard">Your dashboard</button></a>
+                <a href="/quiz/quizz/quiz-selection.html"><button id="dashboard">Your dashboard</button></a>
             </div>
 
             <div class="menu">
               <button class="menu-button"><i class="fa-solid fa-bars"></i></button>
               <ul class="menu-list">
-                <li><a href="quiz/login.php" style="color: white; text-decoration: none;"><i class="fa-solid fa-arrow-right-from-bracket">  </i>  Logout</a></li>
-                <li><a href="/quiz" style="color: white; text-decoration: none;"> <i class="fa-solid fa-user">  </i>   Profile</a></li>
+                <li><a href="/quiz/login.php" style="color: white; text-decoration: none;"><i class="fa-solid fa-arrow-right-from-bracket">  </i>  Logout</a></li>
+                <!-- <li><a href="/quiz" style="color: white; text-decoration: none;"> <i class="fa-solid fa-user">  </i>   Profile</a></li> -->
               </ul>
             </div>
         </div>
@@ -61,8 +81,8 @@
             </div>
         </div>
         <div class="character">
-            <p>Hello,<br> Aarthy</p>
-            <img id="chr" src="/quiz/img/avathar2.gif">
+        <p id="user-greeting">Hello,<br> Guest</p>
+        <img id="chr" src="/quiz/img/avathar2.gif">
         </div>
     </div>
 </section>
@@ -108,6 +128,12 @@
 </section>
 
 <script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Dynamically update the user's name
+const userGreeting = document.getElementById('user-greeting');
+    userGreeting.innerHTML = `Hello,<br> <?php echo $fullName; ?>`;
+});
+
 const menuButton = document.querySelector('.menu-button');
 const menuList = document.querySelector('.menu-list');
 

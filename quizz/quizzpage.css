@@ -1,0 +1,140 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #994fd2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.quiz-container {
+    width: 600px;
+    height: 600px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Timer and Header Section */
+.quiz-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.circle-timer {
+    width: 80px;
+    height: 80px;
+    background-color: #d6b6f7;
+    color: #994fd2;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.progress {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: #994fd2;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+.question-progress {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Quiz Body */
+.quiz-body {
+    margin-top: 10px;
+}
+
+.question {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.options {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.option {
+    background-color: #f1e3fd;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.option:hover {
+    background-color: #994fd2;
+    color: #ffffff;
+}
+
+.option.selected {
+    background-color: #994fd2;
+    color: #ffffff;
+}
+
+
+/* Circular Timer */
+.circular-timer {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* .progress-ring__circle {
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(0);
+    transform-origin: center;
+} */
+
+.timer-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    font-weight: bold;
+    color: #994fd2;
+}

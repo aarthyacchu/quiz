@@ -1,0 +1,111 @@
+*{
+    /* height: 100%; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.popup-container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(45, 0, 70, 0.85)); /* Subtle gradient */
+    z-index: 2;
+    top: -0.1%;
+    /* display: none; */
+}
+
+.container2{
+    width: 30%;
+    margin: 0 auto;
+}
+
+.container2 h1{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    text-align: center;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    color: #ffffff;
+    margin-top: 50px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0;
+}
+
+form label{
+    color: #ffffff;
+    font-weight: bold;
+    margin:10px 0px 0px 0px;
+    font-size: 16px;
+    font-family: "quicksand";
+}
+
+form input:focus {
+    border: 3px solid #9b1fe8;
+    box-shadow: 0 0 px rgba(155, 31, 232, 0.7);
+    outline: none;
+}
+
+form input{
+    margin:5px 0px 10px 0px;
+    height:40px;
+    border:0.5px solid #b8b8b85d ;
+    border-radius: 3px;
+    padding: 0 15px;
+    font-size: 15px;
+    font-family: "quicksand";
+}
+
+form a{
+    margin: 15px 0;
+    text-decoration: none;
+    color:  #d19fea;
+    font-weight: bold;
+}
+
+form a:hover{
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#signUpButton{
+    margin:10px 0px ;
+    height:50px;
+    font-size: 20px;
+    border: none;
+    font-family: sans-serif;
+    border-radius: 3px;
+    background-color: #9b1fe8;
+    color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#signUpButton:hover{
+    box-shadow: 5px 5px 10px rgb(245, 242, 242, 0.5);
+    transform: translateY(-3px);
+}
+
+#signInButton{
+    margin:10px 0px ;
+    height:50px;
+    font-size: 20px;
+    border: none;
+    font-family: sans-serif;
+    border-radius: 3px;
+    background-color: #9b1fe8;
+    color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+} 
+
+#signInButton:hover{
+    box-shadow: 5px 5px 10px rgb(245, 242, 242, 0.5);
+    transform: translateY(-3px);
+}
+

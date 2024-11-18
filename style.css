@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header{
+    height: 75px;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: #994fd2;
+}
+
+#logo{
+    height: 9vh;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#avathar{
+    height: 10vh;
+}
+
+.avathar{
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+#login-button{
+    padding: 15px 55px 15px 55px;
+    border-radius: 10px;
+    border-style: none;
+    font-family: "Quicksand", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    background: rgba(255, 255, 255, 0.3); /* Transparent white */
+    backdrop-filter: blur(10px); /* Blurring background for glassy effect */
+}
+
+#login-button:hover{
+    background: rgba(255, 255, 255, 0.5); /* Transparent white */
+    cursor: pointer;
+}
+
+.container{
+    height: 665px;
+    background-color: #e1cbff;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1{
+    font-family: "Quicksand", Arial, Helvetica, sans-serif;
+    color: white;
+    /* outline-color: #994fd2; */
+    font-size: 70px;
+    font-weight: 900;
+    margin-top: 150px;
+}
+
+p{
+    font-family: sans-serif;
+    width: 35%;
+    margin: auto;
+    color: white;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+#start{
+    padding: 15px 55px 15px 55px;
+    border-radius: 10px;
+    border-style: none;
+    font-family: "Quicksand", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color:#e1cbff;
+    background-color: #994fd2;
+    margin: 0 auto;
+    outline: none;
+}
+
+#start:hover{
+    box-shadow: 1px 2px 3px gray ;
+    cursor: pointer;
+    /* text-shadow: 0.5px gray; */
+}
+
+
+.circle{
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3); /* Transparent white */
+    backdrop-filter: blur(10px); /* Blurring background for glassy effect */
+}
+
+.one{
+    margin-top: 27%;
+    margin-left: -8%;
+}
+
+.two{
+    margin-left: 80%;
+    margin-top: -10%;
+}
+
+.circlee{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3); /* Transparent white */
+    backdrop-filter: blur(10px); /* Blurring background for glassy effect */
+    margin-top: 7%;
+    margin-left: 25%;
+}

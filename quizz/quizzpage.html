@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+    <link rel="stylesheet" href="quizzpage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="quiz-container">
+            <div class="circular-timer">
+                <svg class="progress-ring" width="100" height="100">
+                    <circle class="progress-ring__circle" 
+                            stroke="rgba(153, 79, 210, 1)" 
+                            stroke-width="6" 
+                            fill="transparent" 
+                            r="44" 
+                            cx="50" 
+                            cy="50" />
+                </svg>
+                <div class="timer-text" id="timer-text">0</div>
+            </div>
+
+            <div class="quiz-header">
+                <div class="progress">
+                    <span class="correct" id="correct-count"><i class="fa-solid fa-circle"></i> 0</span>
+                    <span class="question-progress" id="question-progress">Question 1 / 10</span>
+                    <span class="incorrect" id="incorrect-count">0 <i class="fa-solid fa-circle"></i></span>
+                </div>
+            </div>
+
+        <!-- Question -->
+            <div class="quiz-body">
+            <p class="question"></p>
+            <ul class="options"></ul>
+        </div>
+    </div>
+
+     <script src="quizzpage.js"></script>
+</body>
+</html>

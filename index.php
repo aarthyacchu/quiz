@@ -41,7 +41,7 @@ include("connect.php");
                     This quiz is designed to be fun, engaging, and a great way to learn something new. 
                     Click the button above to begin and see how many questions you can get right—good luck!</p>
     
-                    <a href="/quiz/quizz/quiz.php"> <button id="start"> Ready? Go!</button> </a>
+                    <a href="./quizz/quizz.php"> <button id="start"> Ready? Go!</button> </a>
             </div>
         </div>
     </div>

@@ -1,22 +1,16 @@
 <?php
-// Start the session at the very beginning
 session_start();
-
 $conn = mysqli_connect("localhost", "root", "", "quiz"); 
 
-// Check if the connection is successful
-if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
-}
+// if (!$conn) {
+//     die("Database connection failed: " . mysqli_connect_error());
+// }
 
-// Initialize a variable for the user's full name
 $fullName = "Guest"; // Default if not logged in
 
-// Check if the user is logged in
 if (isset($_SESSION['email'])) {
     $email = $_SESSION['email'];
 
-    // Query the database for the user's details
     $query = mysqli_query($conn, "SELECT * FROM `user` WHERE email='$email'");
 
     if ($query && mysqli_num_rows($query) > 0) {
@@ -30,7 +24,6 @@ if (isset($_SESSION['email'])) {
 }
 mysqli_close($conn); 
 ?>
-<!-- <a href="logout.php">Logout</a> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +57,6 @@ mysqli_close($conn);
               <button class="menu-button"><i class="fa-solid fa-bars"></i></button>
               <ul class="menu-list">
                 <li><a href="/quiz/login.php" style="color: white; text-decoration: none;"><i class="fa-solid fa-arrow-right-from-bracket">  </i>  Logout</a></li>
-                <!-- <li><a href="/quiz" style="color: white; text-decoration: none;"> <i class="fa-solid fa-user">  </i>   Profile</a></li> -->
               </ul>
             </div>
         </div>
@@ -86,7 +78,6 @@ mysqli_close($conn);
         </div>
     </div>
 </section>
-<!-- <hr> -->
 
 <section>
     <div class="quiz-container">
@@ -129,7 +120,6 @@ mysqli_close($conn);
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // Dynamically update the user's name
 const userGreeting = document.getElementById('user-greeting');
     userGreeting.innerHTML = `Hello,<br> <?php echo $fullName; ?>`;
 });
@@ -138,7 +128,6 @@ const menuButton = document.querySelector('.menu-button');
 const menuList = document.querySelector('.menu-list');
 
 menuButton.addEventListener('click', function () {
-    // Toggle menu visibility
     if (menuList.style.display === "block") {
         menuList.style.display = "none";
     } else {

@@ -24,7 +24,6 @@
 }
 
 /* tabs  */
-
 .tabs{
     display: flex;
     align-items:center;    
@@ -38,10 +37,6 @@
     font-size: 20px;
 }
 
-/* a{
-    text-decoration: none;
-} */
-
 h3:hover{
     color: #c7c7c7;
     text-decoration: none;
@@ -50,7 +45,6 @@ h3:hover{
 #avathar{
     height: 12vh;
     margin-top: 10px;
-
 }
 
 .avathar{
@@ -115,7 +109,6 @@ ul li:hover{
 }
 
 /* main body  */
-
 .container{
     height: 350px;
     width: 100%;
@@ -203,7 +196,6 @@ p{
 }
 
 /* quiz subjects  */
-
 .quiz-container{
     overflow: hidden;
     width: 0 auto;
@@ -219,7 +211,6 @@ p{
 }
 
 .q{
-    /* background-color: #994fd2; */
     height: 200px;
     width: 200px;
     box-shadow: 2px 5px 9px rgba(0, 0, 0, 0.2);

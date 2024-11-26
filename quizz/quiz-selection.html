@@ -36,10 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const quizDataRaw = localStorage.getItem("quizData");
 
     if (quizDataRaw) {
-        const quizData = JSON.parse(quizDataRaw); // Parse stored JSON data
-        console.log("Loaded quiz data on dashboard:", quizData); // Debugging
+        const quizData = JSON.parse(quizDataRaw); 
+        console.log("Loaded quiz data on dashboard:", quizData); 
 
-        // Update dashboard elements
         document.querySelector(".points h1").textContent = quizData.totalScore || 0;
         document.querySelector("#lists li:nth-child(1)").innerHTML =
             `${Math.round((quizData.totalCorrect / quizData.totalQuestions) * 100)}% <p>completion</p>`;
